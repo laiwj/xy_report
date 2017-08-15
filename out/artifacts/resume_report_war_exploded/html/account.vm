@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分析平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/icons.css">
+    <link rel="stylesheet" type="text/css" href="/lib/page/page.css">
+    <link rel="stylesheet" type="text/css" href="/lib/select/css/select.css">
+    <link rel="stylesheet" type="text/css" href="/lib/jqueryalert/jquery.alerts.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/account.css">
+</head>
+<body>
+<div id="wrapper">
+    #parse ("/menu.vm")
+    <div id="main_content">
+        <div class="mt20">
+            <p><b>账号设置</b></p>
+            <div class="account-content mt20">
+                <ul class="menu-tab clearfix">
+                    #set($index = 2)
+                    <li class="first active"><a class="tab" href="#tab1" data-toggle="tab"><span>基础设置</span></a></li>
+                    #foreach( $elem in $accountMenu)
+                        <li class=""><a class="tab" href="#tab$index" data-toggle="tab"><span>$elem.name</span></a></li>
+                        #set($index = $index+1)
+                    #end
+
+                </ul>
+
+                <div class="main-container mt20">
+                    <div id="tab1" class="tab_content" style="display: block;">
+                        <div>
+                            <div >
+                                <label class="fl">默认行业设置：</label>
+                                <div class="fl">
+                                    <div class="select-warp" id="J_industry">
+                                        <label class="select-text button4" >${default_industry}</label>
+                                        <input type="hidden"/>
+                                        <input type="hidden" class="select-value" id="bean_industry" value="${default_industry}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt20" style="display: none;">
+                                <label>默认子行业设置：</label>
+                                <button class="button4">互联网行业</button>
+                                <button class="button1 ml20">更改</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab2" class="tab_content" >
+                        <p class="no_data_download">暂无数据！</p>
+                        <table width="100%" class="download_table">
+                            <thead>
+                                <tr>
+                                    <th class="td-text-indent cr6"><b>报告名称</b></th>
+                                    <th class="cr6"><b>收藏时间</b></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="download_tbody">
+
+                            </tbody>
+                        </table>
+
+                        <div id="kkpager1" class="kkpager"></div>
+                    </div>
+                    <div id="tab3" class="tab_content">
+                        <p class="no_data_collect">暂无数据！</p>
+                        <table width="100%" class="collect_table">
+                            <thead>
+                            <tr>
+                                <th class="td-text-indent cr6"><b>报告名称</b></th>
+                                <th class="cr6"><b>收藏时间</b></th>
+                                <th class="cr6" style="display: none;"><b>状态</b></th>
+                            </tr>
+                            </thead>
+
+                            <tbody id="collect_tbody">
+
+                            </tbody>
+                        </table>
+                        <div id="kkpager2" class="kkpager"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</div>
+
+<script type="text/template" id="J_download_temp">
+    <@_.each(data, function(item){@>
+    <tr class="collection-item">
+        <td class="td-text-indent"><@=item.report_name@></td>
+        <td><@=new Date(item.download_time).format("yyyy-MM-dd HH:mm:ss")@></td>
+        <td class="fr">
+            <button class="button3">打开</button>
+        </td>
+    </tr>
+    <@})@>
+</script>
+
+<script type="text/template" id="J_collect_temp">
+    <@_.each(data, function(item){@>
+    <tr class="collection-item">
+        <td class="td-text-indent"><@=item.report_name@></td>
+        <td><@=new Date(item.collect_time).format("yyyy-MM-dd HH:mm:ss")@></td>
+        <td class="fr">
+            <button class="button4 button-del J_del_collect" data-id="<@=item._id@>">删除</button>
+            <button class="button3">查看</button>
+        </td>
+    </tr>
+    <@})@>
+</script>
+
+<script src="/lib/config.js"></script>
+<script src="/lib/require/require.js"></script>
+<script type="text/javascript">
+    require(["account"], function(xy_account){
+        xy_account.ready();
+    })
+</script>
+
+</body>
+</html>

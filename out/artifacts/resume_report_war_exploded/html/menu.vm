@@ -1,0 +1,20 @@
+
+<div id="header">
+    <a href="/dashbord"><img src="/images/logo.png" class="logo fl"/></a>
+    <div class="head-menu">
+        <ul>
+            #foreach( $elem in $menu)
+                <li #if($currpage == $elem.href) class="active" #end><a href="$elem.href">$elem.name</a></li>
+            #end
+        </ul>
+    </div>
+
+    <div class="operate-menu fr ver-middle">
+        <ul>
+            <li class="userinfo">$userinfo.username</li>
+            <li ><a href="/account" title="设置" class="setting"></a></li>
+            <li class="login_li"><a href="/user/logout" title="退出" class="loginout"></a></li>
+        </ul>
+    </div>
+
+</div>

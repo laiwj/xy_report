@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分析平台</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/icons.css">
+    <link rel="stylesheet" type="text/css" href="/lib/select/css/select.css">
+    <link rel="stylesheet" type="text/css" href="/lib/jqueryalert/jquery.alerts.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/talentflow.css">
+</head>
+<body>
+#set($currpage="/supplydemand")
+<div id="wrapper">
+    #parse ("/menu.vm")
+    <div id="main_content">
+        <div class="top-menu">
+            <div class="fl">
+                <div class="select-warp" id="J_industry">
+                    <b><label class="select-text button1" >互联网全行业</label></b>
+                    <input type="hidden"/>
+                    <input type="hidden" class="select-value" id="bean_industry"/>
+                </div>
+            </div>
+            <div class="fl">
+                <div class="select-warp ml10" id="J_na">
+                    <b><label class="select-text button1" >需求量</label></b>
+                    <input type="hidden"/>
+                    <input type="hidden" class="select-value" id="bean_na"/>
+                </div>
+            </div>
+            <div class="fl ml10" style="height: 28px;line-height: 28px;">排名前五的</div>
+            <div class="fl">
+                <div class="select-warp ml10" id="J_fp">
+                    <b><label class="select-text button1" >需求量</label></b>
+                    <input type="hidden"/>
+                    <input type="hidden" class="select-value" id="bean_fp"/>
+                </div>
+            </div>
+
+            <button class="button4 ml10" id="J_analysis">分析</button>
+
+            <button class="button3 fr ml10" id="J_download">下载</button>
+            <button class="button2 fr" id="J_collect">收藏</button>
+        </div>
+        <div class="charts-wrapper">
+            <div class="ver-middle">
+                <label style="height: 30px;line-height: 30px;" class="fl">报告周期：</label>
+                <div class="select-warp fl" id="J_type" style="display: inline-block;width: 100px;">
+                    <label class="select-text" style="text-decoration: underline;"></label>
+                    <input type="hidden"/>
+                    <input type="hidden" class="select-value" id="bean_type"/>
+                </div>
+            </div>
+
+            <div class="charts-content">
+                <input id="J_charts_data" type="hidden"/>
+                <iframe id="report_iframe" width="100%" height="500px" frameborder="0"></iframe>
+            </div>
+            <div class="charts-desc charts_desc_p">
+                    通过对香港招聘数据、职场社交数据、政府公开数据、香港高校数据等多源异构数据进行采集清洗，找出香港高端人才的总体发
+                    展趋势（近五年）以及香港的重点行业。结合香港富余劳动力及消费能力，对各行业人才进行数据挖掘和多维度跨域分析，定位
+                    重点引进的香港高端人才对象群体。根据香港高端人才求职意愿的调研分析，为在川企业入港对这类群体的招才引智提供切实可
+                    行建议及举措。
+            </div>
+        </div>
+
+    </div>
+    <div id="footer"></div>
+</div>
+
+<script src="/lib/config.js"></script>
+<script src="/lib/require/require.js"></script>
+<script type="text/javascript">
+    require(["supplydemand"], function(xy_supplydemand){
+        xy_supplydemand.ready();
+    })
+</script>
+
+</body>
+</html>

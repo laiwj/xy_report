@@ -1,0 +1,47 @@
+.top-content{
+    background: #ffffff;
+    height: 60px;
+    margin-top:20px;
+    padding: 20px;
+}
+.msg-content{
+    min-height: 100px;
+    background: #ffffff;
+    margin-top:20px;
+    padding: 20px;
+}
+.head-photo-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.head-text{
+    margin-left: 20px;
+    color: #000000;
+    line-height: 25px;
+    margin-top:5px;
+}
+.icon-wrapper{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 5px;
+}
+.icon-system-wrapper{
+    background: #f3ca4d;
+}
+.icon-account-wrapper{
+    background: #38bb9b;
+}
+.msg-item-icon{
+    font-size: 20px;
+}
+.msg-item{
+    padding: 20px 0;
+    border-bottom: 1px solid #eae9e9;
+}
+.time-text{
+    color:#a9a9a9;
+}

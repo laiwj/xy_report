@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+<style type="text/css">
+    body {
+        width: 100%;
+        font-family: "Microsoft Yahei";
+    }
+    
+    .view_warp {
+        height: 500px;
+        width: 600px;
+        margin: auto;
+    }
+    
+    .view {
+        height: 500px;
+        width: 600px;
+        margin: auto;
+        text-align: center;
+    }
+    
+    .no_data {
+        margin-top: 20px;
+        font-size: 18px;
+        display: none;
+    }
+</style>
+
+<body>
+
+    <div class="view_warp">
+        <div class="col-md-4 view" id="charts_wrap">
+            <p class="no_data">暂无数据！</p>
+        </div>
+    </div>
+
+
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/echarts.v3.min.js"></script>
+<script src="js/visual/public.js?v=1.1"></script>
+<script src="js/visual/visualBarV.js?v=1.2"></script>
+
+<script language="JavaScript">
+    "use strict";
+    $(document).ready(function() {
+        var node = $('#J_charts_data', window.parent.document);
+        var datas = node.val();
+        var typeLimit = node.attr("typelimit");
+        var type = node.attr("charts_type");
+        datas = JSON.parse(datas);
+        if (datas.length == 0) {
+            $(".no_data").show();
+            return;
+        }
+        var _w = document.documentElement.clientWidth - 200;
+        $(".view_warp,#charts_wrap").width(_w);
+        if (type == "tab1") {
+            shouHeightLight(typeLimit);
+        }
+
+        LoadGraphExample();
+        //图形加载 - 人才流动，人才流动数据格式示例
+        function LoadGraphExample() {
+
+            var data = [{
+                name: 'p25',
+                value: []
+            }, {
+                name: 'p50',
+                value: []
+            }, {
+                name: 'p75',
+                value: []
+            }, {
+                name: 'p100',
+                value: []
+            }];
+            var data2 = [{
+                name: 'p25',
+                value: []
+            }, {
+                name: 'p50',
+                value: []
+            }, {
+                name: 'p75',
+                value: []
+            }, {
+                name: 'p100',
+                value: []
+            }];
+            var tips = {
+                "p25": {},
+                "p50": {},
+                "p75": {},
+                "p100": {}
+            }
+            var nums = {
+                "p25": {},
+                "p50": {},
+                "p75": {},
+                "p100": {}
+            };
+            $.each(datas, function(i, v) {
+                var obj = v;
+                for (var key in obj) {
+                    if (key == "position_nums") {
+                        continue;
+                    }
+                    var keyobj = obj[key];
+                    var keyname = key;
+                    var tipsArr = [];
+                    $.each(data, function(i, v) {
+                        var p = v.name;
+                        var varr = v.value;
+                        $.each(keyobj, function(i, v) {
+                            if (p == v.name) {
+                                varr.push({
+                                    name: keyname,
+                                    value: v.max_salary > 200000 ? v.max_salary / 10 : v.max_salary
+                                });
+                            }
+                        })
+                    });
+                    $.each(data2, function(i, v) {
+                        var p = v.name;
+                        var varr = v.value;
+                        $.each(keyobj, function(i, v) {
+                            if (p == v.name) {
+                                varr.push({
+                                    name: keyname,
+                                    value: v.tags,
+                                });
+                            }
+                        })
+                    });
+                    for (var key in tips) {
+                        var p = key;
+                        var obj = tips[key];
+                        $.each(keyobj, function(i, v) {
+                            if (p == v.name) {
+                                var keywordsArr = v.keywords;
+                                var resultArr = [];
+                                $.each(keywordsArr, function(i, v) {
+                                    var sonArr = []
+                                    sonArr.push(v, parseInt(Math.random() * 20))
+                                    resultArr.push(sonArr);
+                                })
+                                obj[keyname] = resultArr;
+                            }
+                        })
+                    }
+                    for (var key in nums) {
+                        var p = key;
+                        var obj = nums[key];
+                        $.each(keyobj, function(i, v) {
+                            if (p == v.name) {
+                                obj[keyname] = v.keywords_num;
+                            }
+                        })
+                    }
+                }
+            })
+            if (type == "tab1") {
+                ShowBarJob("charts_wrap", data, tips, nums, function(x, y) {
+                    var maskarr1 = [],
+                        maskarr2 = [];
+
+                    $('#myModal', window.parent.document).show();
+
+                    $.each(data2, function(i, v) {
+                        if (v.name == y) {
+                            maskarr1 = v.value;
+                            return false;
+                        }
+
+                    })
+                    $.each(maskarr1, function(i, v) {
+                        if (v.name == x) {
+                            maskarr2 = v.value;
+                        }
+                    })
+                    $('#myModalLabel', window.parent.document).text(x + "岗位特征画像");
+                    $('.mask-icon', window.parent.document).text(x + "岗位特征画像");
+                    var index = 1;
+                    for (var key in maskarr2) {
+                        var num = 0;
+                        var str = "";
+                        var obj = maskarr2[key]
+                        $('.tag' + index, window.parent.document).show().find("h4").text(key);
+                        for (var n in obj) {
+                            num += obj[n];
+                        }
+                        for (var n in obj) {
+                            var strname = n;
+                            var strper = parseInt((obj[n] / num) * 100) + "%";
+                            str += strname;
+                            str += strper;
+                            str += ",";
+                        }
+                        $('.tag' + index, window.parent.document).find("span").text(str);
+                        index++;
+                    }
+                    $('.mask-close', window.parent.document).click(function() {
+                        $('#myModal', window.parent.document).hide();
+                    });
+                });
+            } else {
+                ShowBarMoney("charts_wrap", data, tips, nums, function(x, y) {
+
+                });
+            }
+
+
+
+        }
+
+
+
+    });
+</script>
+
+</html>

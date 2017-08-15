@@ -1,0 +1,22 @@
+.top-menu{
+    margin-top:20px;
+}
+.charts-wrapper{
+    background: #ffffff;
+    min-height: 100px;
+    margin-top:20px;
+    padding: 20px;
+}
+.charts-desc{
+    background:#eff4fa ;
+    padding:20px;
+    margin-top:20px;
+}
+.charts-content{
+    width: 100%;
+    text-align: center;
+}
+
+.firstOne{
+    font-size: 18px;
+}
