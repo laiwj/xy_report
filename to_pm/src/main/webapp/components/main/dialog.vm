@@ -1,0 +1,150 @@
+<!--添加子账号-->
+<input type="text" name="account" value="" style="display: none"/>
+<input type="password"  name="password" style="display: none"/>
+<div style="display:none;">
+    <div class="addeAccount_dialog p20 clearfix" id="addeAccount_dialog" title="添加子账号">
+        <div class="control-group  ">
+            <p class="f14">用户名称</p>
+            <div>
+                <input class="input " maxlength="50" placeholder="请输入用户名" id="user_username" validator="notNullOrEmpty" errorTipsKey="用户名" removeDefaultRules="removeDefaultRules"/>
+            </div>
+        </div>
+        <div class="control-group  ">
+            <p class="f14">手机/Email</p>
+            <div>
+                <input class="input " maxlength="50" name="account" placeholder="请输入手机或邮箱" id="user_account" validator="notNullOrEmpty phoneEmail" errorTipsKey="手机或邮箱" removeDefaultRules="removeDefaultRules"/>
+            </div>
+        </div>
+        <div class="control-group  ">
+            <p class="f14">密码</p>
+            <div>
+                <input class="input  " type="password" name="password" maxlength="6" placeholder="请输入密码" id="user_password" validator="notNullOrEmpty" errorTipsKey="密码" removeDefaultRules="removeDefaultRules"/>
+            </div>
+        </div>
+
+
+        <div class="dialog-btn mt20 tr">
+            <button class="btn btn-default J_cancel_dialog">取消</button>
+            <button class="btn btn-primary lh17 J_sure_create">确定</button>
+        </div>
+    </div>
+</div>
+<!--邀请用户-->
+<div style="display:none;">
+    <div class="invitedUsers_dialog p20 clearfix" id="invitedUsers_dialog" title="邀请用户">
+        <div class="control-group  ">
+            <p class="f14">用户名称</p>
+            <div>
+                <input class="input " maxlength="50" placeholder="请输入用户名" id="user_username1" validator="notNullOrEmpty" errorTipsKey="用户名" removeDefaultRules="removeDefaultRules"/>
+            </div>
+        </div>
+        <div class="control-group  ">
+            <p class="f14">手机/Email</p>
+            <div>
+                <input class="input " maxlength="50" name="account" placeholder="请输入手机或邮箱" id="user_account1" validator="notNullOrEmpty phoneEmail" errorTipsKey="手机或邮箱" removeDefaultRules="removeDefaultRules"/>
+            </div>
+        </div>
+        <div class="  ">
+            <p class="f14">消息内容</p>
+            <div>
+                <textarea class="textarea" id="user_msg"  placeholder="消息内容" maxlength="256" errorTipsKey="消息内容" validator="notNullOrEmpty" removeDefaultRules="removeDefaultRules"></textarea>
+            </div>
+        </div>
+
+
+        <div class="dialog-btn mt20 tr">
+            <button class="btn btn-default J_cancel_dialog">取消</button>
+            <button class="btn btn-primary lh17 J_sure_invited">确定</button>
+        </div>
+    </div>
+</div>
+
+<!--数据干预-->
+<div style="display:none;">
+    <div class="data_disturb_dialog p20 clearfix" id="data_disturb_dialog" title="数据干预">
+       <div class="control-group-warp">
+            <div class="control-group">
+                <p class="f14">数据1</p>
+                <div>
+                    <input class="input " maxlength="50" placeholder="请输入用户名" id="user_username1" validator="notNullOrEmpty" errorTipsKey="用户名" removeDefaultRules="removeDefaultRules"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="dialog-btn mt20 tr">
+            <button class="btn btn-default J_cancel_dialog">取消</button>
+            <button class="btn btn-primary lh17 J_sure_create" id="J_save_disturb">确定</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- pm 权限设置-->
+<div style="display:none;">
+    <div class=" powerPM_dialog p20 clearfix" id="powerPM_dialog" title="权限设置">
+        <div class="control-group-warp">
+
+            <div class="control-group-charts clearfix mt20">
+                <div class="ver-middle fl">
+                    <input type="checkbox" value="1"/>
+                    <label>添加账户</label>
+                </div>
+
+                <div  class="ver-middle fl ml20">
+                    <input type="checkbox"  value="2"/>
+                    <label>数据干预</label>
+                </div>
+
+                <div  class="ver-middle fl ml20">
+                    <input type="checkbox"  value="3"/>
+                    <label>添加数据解释</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dialog-btn mt20 tr">
+            <button class="btn btn-default J_cancel_dialog">取消</button>
+            <button class="btn btn-primary lh17  " id="J_sure_powerPM">确定</button>
+        </div>
+    </div>
+</div>
+
+<!-- 用户 权限设置-->
+<div style="display:none;">
+    <div class=" powerB_dialog p20 clearfix" id="powerB_dialog" title="权限设置">
+        <div class="control-group-warp">
+
+            <div class="control-group-charts clearfix mt20">
+                <div class="ver-middle fl ml20">
+                    <input type="checkbox"  value="100"/>
+                    <label>收藏报告</label>
+                </div>
+
+                <div  class="ver-middle fl ml20">
+                    <input type="checkbox" value="101"/>
+                    <label>下载报告</label>
+                </div>
+
+                <div  class="ver-middle fl ml20">
+                    <input type="checkbox"  value="201"/>
+                    <label>人才分布</label>
+                </div>
+                <div  class="ver-middle fl ml20">
+                    <input type="checkbox"  value="202"/>
+                    <label>人才流动</label>
+                </div>
+                <div  class="ver-middle fl ml20">
+                    <input type="checkbox"  value="203"/>
+                    <label>供需指数</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dialog-btn mt20 tr">
+            <button class="btn btn-default J_cancel_dialog">取消</button>
+            <button class="btn btn-primary lh17  " id="J_sure_powerB">确定</button>
+        </div>
+    </div>
+</div>

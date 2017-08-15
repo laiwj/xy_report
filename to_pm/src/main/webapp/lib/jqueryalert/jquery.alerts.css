@@ -1,0 +1,125 @@
+#popup_overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99998;
+	background: url(/lib/jqueryalert/images/loading.png) repeat;
+}
+
+#popup_overlay > div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	
+}
+
+#popup_overlay > iframe {
+	z-index: 0;
+	filter: alpha(opacity=0);
+}
+
+#popup_container {
+	min-width: 300px;
+	max-width: 800px;
+	background-color: #fff;
+}
+
+#popup_title {
+	margin: 0;
+	padding: 0;
+	height: 34px;
+	line-height: 34px;
+	color: #fff;
+	font-size: 14px;
+	text-indent: 8px;
+	background-color: #303030;
+	cursor: default;
+	display: none;
+}
+
+/*#popup_content {
+	background: 68px 60px no-repeat url(images/info.gif);
+}
+
+#popup_content.alert {
+	background-image: url(images/important.png);
+}
+
+#popup_content.tip {
+	background-image: url(images/important.png);
+}
+
+#popup_content.confirm {
+	background-image: url(images/important.gif.png);
+}
+
+#popup_content.prompt {
+	background-image: url(images/help.png);
+}*/
+
+#popup_message {
+	padding: 20px;
+	min-height: 50px;
+	padding-top: 20px;
+}
+#popup_message *{
+	vertical-align: middle;
+}
+
+#popup_messageText {
+	min-height: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	word-wrap: break-word;
+	word-break: break-all;
+	display: inline-block;
+	margin-left: 10px;
+	max-width: 500px;
+	color:#555;
+}
+
+#popup_panel {
+	padding: 0 20px 20px 0;
+	text-align: right;
+}
+
+#popup_prompt, #popup_ok, #popup_cancel {
+	width: 70px;
+	height: 30px;
+	font-size: 14px;
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+}
+
+#popup_prompt, #popup_ok {
+	background-color:#1aa5e5
+}
+
+#popup_prompt:hover, #popup_ok:hover {
+	background-color: #1aa5e5;
+}
+
+#popup_cancel {
+	color: #777;
+	/*background-color: #f1f1f1;*/
+	/*border: solid 1px #c0c0c0;*/
+}
+
+#popup_cancel:hover {
+	background-color: #f4f4f4;
+	/*color: #000;*/
+}
+
+#popup_prompt:focus, #popup_ok:focus, #popup_cancel:focus {
+	/*margin-left: 10px;*/
+	outline: none;
+	border: none;
+}

@@ -1,0 +1,118 @@
+<link href="/lib/select/css/select.css" rel="stylesheet"/>
+<div class=" p20">
+    <div class="row-fluid tabContainer">
+        <div class="span12 search_page">
+
+            <div class="well  clearfix">
+                <div class="row-fluid">
+                    <p class="pull-left mt10 "><b>账号管理</b><span class="J_account_num number">0</span></p>
+                    <div class="pull-right">
+
+                        <a class="btn btn-primary mr10 J_create_account mt8" _title="创建账号" _type="0">创建账号</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p20">
+                <p class="tc null-model" style="display:none;">暂无数据</p>
+                <div class="table_li admin_model">
+                    <div class="table_dt " >
+                    <ul class="fb cr6 p0 company">
+                        <li class="tl " style="text-indent: 20px;">序号</li>
+                        <li style="width: 25%">账户</li>
+                        <li>邀请/注册时间</li>
+                        <li class="tc">子账号</li>
+                        <li class="tr"style="width: 10%" >操作</li>
+                    </ul>
+
+                    </div>
+                    <div class="biglist">
+
+                    </div>
+
+
+
+
+                        <script type="text/template" id="bigList">
+                        <@_.each(data, function(item,index){@>
+                            <dd class="table_dt">
+                            <ul class=" cr6 p0">
+                            <li class="tl " style="text-indent: 20px;"><@=index+1@></li>
+                            <li style="width: 25%"><@=item.username@></li>
+                            <li><@=new Date(item.createTime).format("yyyy-MM-dd")@></li>
+                            <li class="tc" ><a class="fb J_click_pull"_id="<@=item._id@>" _index="0"><@=item.count@></a></li>
+                            <li class="tr"style="width: 10%" >
+                                <button class="btn btn-border J_create_account" style="display: none"  _id="<@=item._id@>"  _type="1" _title="添加子账号">+添加子账号</button>
+                                <button class="btn btn-primary J_power" data-userid="<@=item._id@>" _powerList="<@=item.power_list@>">权限</button>
+                            </li>
+                            </ul>
+                            <div class="pull_model">
+
+                            <ul class="fb  p0 pull_border smaillList">
+                            <li class="tl " style="text-indent: 20px;">序号</li>
+                            <li style="width: 25%">账户</li>
+                            <li>邀请/注册时间</li>
+                            <li class="tc" >隶属用户</li>
+                            <li class="tr"style="width: 10%"></li>
+                            </ul>
+
+
+                            </div>
+
+                            </dd>
+                            <@})@>
+                    </script>
+</div>
+                <script type="text/template" id="smailList">
+                    <@_.each(data, function(item,index){@>
+
+                    <ul class=" pull_border p0">
+                        <li class="tl " style="text-indent: 20px;"><@=index+1@></li>
+                        <li style="width: 25%"><@=item.username@><@=item.email?'&nbsp;/&nbsp;'+item.email:''@></li>
+                        <li><@=new Date(item.createTime).format("yyyy-MM-dd")@></li>
+                        <li class="tc" ><@=item.count@></li>
+                        <li class="tr"style="width: 10%">
+
+                        </li>
+                    </ul>
+                    <@})@>
+                </script>
+
+
+
+                <table class="table company_model" style="display: none;">
+                    <thead>
+                    <tr class="fb cr6">
+                        <th style="width: 20%">序号</th>
+                        <th style="width: 25%">用户名称/手机号/Email</th>
+                        <th>邀请/注册时间</th>
+                        <th class="tc">隶属用户</th>
+                        <th  style="width: 10%">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="userList">
+
+
+
+                    </tbody>
+
+                </table>
+                <script type="text/template" id="userList">
+                    <@_.each(data, function(item,index){@>
+                    <tr>
+                        <td style="width: 20%"><@=index+1@></td>
+                        <td style="width: 25%"><@=item.username@><@=item.email?'&nbsp;/&nbsp;'+item.email:''@><@=item.telphone?'&nbsp;/&nbsp;'+item.telphone:''@></td>
+                        <td><@=new Date(item.createTime).format("yyyy-MM-dd")@> </td>
+                        <td class="tc"><a class="fb" href="/index#/userInfo/<@=item._id@>" _id="<@=item._id@>" ><@=item.count@></a></td>
+                        <td style="width: 10%">
+                            <button class="btn btn-primary J_power" data-userid="<@=item._id@>" _powerList="<@=item.power_list@>">权限</button>
+                        </td>
+                    </tr>
+                    <@})@>
+                </script>
+                <div id="kkpager"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dialog" ></div>
+

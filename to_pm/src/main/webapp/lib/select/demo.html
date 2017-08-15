@@ -1,0 +1,42 @@
+
+<html>
+<head>
+	     <meta charset="UTF-8">
+    <title>CCF</title>
+
+  <link href="css/select.css" type="text/css" rel="stylesheet"/>
+  <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="select.js"></script>
+
+
+
+</head>
+<body>
+
+	<div class="select-warp" id="J_UserList">
+		<input type="text" class="select-text" />
+		<input type="hidden"   />
+	    <input type="hidden"  class="select-value"/>
+	</div>
+
+<script type="text/javascript">
+
+var p = {
+	domId:'J_UserList', //必填
+	options: {text:"22","key":11},//必填
+	width: 200,//下拉宽度
+	event: {
+		onchange: function(obj, value, text){
+			var tel = obj.tel || '';
+			
+		},
+		onload: function(){
+		
+		}
+	}
+}
+var selectControl = new SelectControl(p);
+</script>
+</body>
+
+</html>

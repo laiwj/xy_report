@@ -1,0 +1,55 @@
+<div class="navigation-header ">
+    <div class="text-center">
+        <img class="logo" src="images/logo.png">
+
+    </div>
+</div>
+
+<div class="antiScroll height100p">
+
+        <div class="antiscroll-content">
+
+            <div class="sidebar_inner">
+                <div class="pt20 pb20">
+                    <div class="person-photo pr">
+                        <img src="images/hdlogo.png" class="person-img">
+                    </div>
+                    <p class="text-center user_name"> $userinfo.username</p>
+                    <input type="hidden" value="数联寻英" id="g_company">
+
+                    <p class="text-center user_position">
+
+                        #if( $userinfo.type == 1)
+                        管理员
+                            #elseif($userinfo.type == 2)
+                            公司
+                            #else
+                            业务员
+                    #end
+                    </p>
+                </div>
+                <ul id="side_accordion" class="accordion">
+                    #foreach( $elem in $menu)
+                        <li class="accordion-group">
+                            <div class="accordion-heading ver-middle J_menu_children">
+                                <a href="$elem.href" data-parent="#side_accordion" data-toggle="menu" class="accordion-toggle ver-middle">
+                                    <i class="icon s16 $elem.iconClass "></i>$elem.name
+
+                                </a>
+
+                            </div>
+
+
+                        </li>
+                    #end
+
+
+
+                </ul>
+
+
+            </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+
+<header>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="btn_menu mt20 ml10 fl"><i class="small-menu small-menu-img"></i>
+
+        </div>
+        <div class="container-fluid">
+                <div class="btn-group fr mt20" style="right: 50px;">
+
+                    <div data-toggle="dropdown" class="dropdown-toggle hd-person cur" aria-expanded="false"><img class="hd-icon" src="images/hdlogo.png"/>  $userinfo.username</div>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="/user/logout">退出登录</a></li>
+
+                    </ul>
+                </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+</header>

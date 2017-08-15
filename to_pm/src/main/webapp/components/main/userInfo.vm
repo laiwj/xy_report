@@ -1,0 +1,64 @@
+<link href="/lib/select/css/select.css" rel="stylesheet"/>
+<div class=" p20">
+    <div class="row-fluid tabContainer">
+        <div class="span12 search_page">
+
+               <div class="well  clearfix">
+                <div class="row-fluid">
+                    <p class="pull-left mt10 "><b>用户管理</b><span class="J_account_num number">0</span></p>
+
+                    <div class="pull-right">
+
+                        <a class="btn btn-primary mr10 mt8" id="J_invitedUsers" style="display: none">邀请用户</a>
+
+
+                        <div class="clearfix fr" style="display: none">
+                            <label class="fl mt5 mr10"></label>
+
+                            <div class="select-minH select-warp select-input  fl" id="service_id" style="width: 150px;">
+                                <label class="select-text ">客服名称</label>
+                                <input type="hidden" class="defaultValue"/>
+                                <input type="hidden" class="select-value"/>
+                            </div>
+                        </div>
+                    </div>
+
+</div>
+                </div>
+                <div class="p20">
+                    <p class="tc null-model" style="display:none;">暂无数据</p>
+                    <table class="table infolist">
+                        <thead>
+                        <tr class="fb cr6">
+                            <th style="width: 20%">序号</th>
+                            <th  style="width: 30%">用户名称/手机号/Email</th>
+                            <th>邀请/注册时间</th>
+                            <th class="tc">隶属客服</th>
+                            <th class="tr">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody class="userList">
+
+
+
+                        </tbody>
+                    </table>
+                    <script type="text/template" id="userList">
+                        <@_.each(data, function(item,index){@>
+                        <tr>
+                            <td><@=index+1@></td>
+                            <td style="width: 30%"><@=item.username@><@=item.email?'&nbsp;/&nbsp;'+item.email:''@><@=item.telphone?'&nbsp;/&nbsp;'+item.telphone:''@></td>
+                            <td><@=new Date(item.createTime).format("yyyy-MM-dd")@> </td>
+                            <td class="tc"><@=item.pm_user_name@></td>
+                            <td class="tr">
+                                <button class="btn btn-primary J_power" data-userid="<@=item._id@>" _powerList="<@=item.power_list@>">权限</button>
+                            </td>
+                        </tr>
+                        <@})@>
+                    </script>
+                    <div id="kkpager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="dialog" ></div>

@@ -1,0 +1,150 @@
+<div class=" p20">
+    <div class="row-fluid tabContainer">
+        <div class="span12 search_page">
+
+            <div class="well  clearfix">
+                <div class="row-fluid">
+                    <p class="pull-left mt10 "><b>数据报告</b></p>
+
+                    <div class="pull-right">
+                        <div class="select-warp fl mt10" id="J_chartstype" style="width: 100px;">
+                            <label class="select-text" style=""></label>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_chartstype"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="p20">
+                <div class="top-menu">
+                    <div class="fl report_tab" for-tab="">
+                        <div class="select-warp s1" id="J_city">
+                            <b><label class="select-text button1" >北京</label></b>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_city"/>
+                        </div>
+                    </div>
+                    <div class="fl report_tab" for-tab="tab1,tab2,tab3" style="display: block;">
+                        <div class="select-warp s1" id="J_industry">
+                            <b><label class="select-text button1" >互联网全行业</label></b>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_industry"/>
+                        </div>
+                    </div>
+                    <div class="fl report_tab" for-tab="tab2">
+                        <div class="select-warp s1" id="J_direction">
+                            <b><label class="select-text button1" >人才流出</label></b>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_direction"/>
+                        </div>
+                    </div>
+
+                    <div class="fl report_tab" for-tab="tab3">
+                        <div class="select-warp s1" id="J_na">
+                            <b><label class="select-text button1" >需求量</label></b>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_na"/>
+                        </div>
+                    </div>
+
+                    <div class="fl ml5 report_tab" style="height: 28px;line-height: 28px;font-size: 14px;display: block;" for-tab="tab1" >从业人员的</div>
+                    <div class="fl ml5 report_tab" style="height: 28px;line-height: 28px;font-size: 14px;" for-tab="tab3">排名前五的</div>
+                    <div class="fl ml5 report_tab" style="height: 28px;line-height: 28px;font-size: 14px;" for-tab="tab2">的</div>
+                    <div class="fl report_tab" for-tab="tab1,tab2" style="display: block;">
+                        <div class="select-warp s1" id="J_cf" >
+                            <b><label class="select-text button1" >热门城市</label></b>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_cf"/>
+                        </div>
+                    </div>
+
+                    <div class="fl report_tab" for-tab="tab3">
+                        <div class="select-warp s1" id="J_fp" >
+                            <b><label class="select-text button1" >职能</label></b>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_fp"/>
+                        </div>
+                    </div>
+
+                    <div class="fl ml5 report_tab" style="height: 28px;line-height: 28px;font-size: 14px;" for-tab="tab1">分布</div>
+
+                    <!--<button class="btn button4 ml20" id="J_analysis">分析</button>-->
+
+                    <button class="btn btn-primary fr data_disturb ml10" id="J_data_disturb">数据干预</button>
+                    <div class="ver-middle fr">
+                        <label style="height: 30px;line-height: 30px;" class="fl">报告周期：</label>
+                        <div class="select-warp fl" id="J_type" style="display: inline-block;width: 100px;">
+                            <label class="select-text"></label>
+                            <input type="hidden"/>
+                            <input type="hidden" class="select-value" id="bean_type"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-wrapper">
+
+
+                    <div class="charts-content">
+                        <input id="J_charts_data" type="hidden"/>
+                        <iframe id="report_iframe" width="100%" height="500px" frameborder="0"></iframe>
+                    </div>
+                    <textarea class="charts-desc" id="report_info" placeholder="请输入数据分析"></textarea>
+                </div>
+
+                <div class="analysis-items-warp mt20 J_analysis_items_warp">
+                    <div class="analysis-items clearfix">
+                        <i class="icon icon-circle fl">·</i>
+                        <div class="fl ml10">
+                            <p><b>罗春</b><span class="f10 cr9 ml10">2017/10/23 22:00</span></p>
+                            <p class="text_desc_p"><span class="text_desc">添加报告分析说明。</span><button class="button1 edit_desc J_edit_desc">编辑</button></p>
+                        </div>
+                    </div>
+
+                    <div class="analysis-items clearfix">
+                        <i class="icon icon-circle fl">·</i>
+                        <div class="fl ml10">
+                            <p><b>罗春</b> <span class="f10 cr9 ml10">2017/10/23 22:00</span></p>
+                            <p class="text_desc_p"><span class="text_desc">添加报告分析说明。</span><button class="button1 edit_desc J_edit_desc">编辑</button></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/template" id="J_editdesc_temp">
+    <div class="edit_desc_input_warp">
+        <input type="text" class="input edit_desc_input" value="<@=value@>"/>
+        <button class="btn btn-primary J_save_desc"  api_url="<@=api_url@>" data_id = "<@=data_id@>" user_id="<@=user_id@>">保存</button>
+        <button class="btn btn-border J_cancel_desc">取消</button>
+    </div>
+</script>
+
+
+<script type="text/template" id="data_disturb_temp">
+    <@_.each(data, function(item){@>
+    <div class="control-group">
+        <p class="f14 name"><@=item.name@></p>
+        <div>
+            <input class="input data" value="<@=item.value@>" maxlength="50" placeholder="请输入<@=item.name@>" validator="notNullOrEmpty" errorTipsKey="<@=item.name@>" removeDefaultRules="removeDefaultRules"/>
+        </div>
+    </div>
+    <@})@>
+</script>
+
+<script type="text/template" id="desc_temp">
+    <@_.each(data, function(item){@>
+    <div class="analysis-items clearfix">
+        <i class="icon icon-circle fl">·</i>
+        <div class="fl ml10">
+            <p><b><@=item.pm_username@></b><@if(item.modify_time){@><span class="f10 cr9 ml10"><@=new Date(item.modify_time).format('yyyy/MM/dd HH:mm:ss')@></span><@}@></p>
+            <p class="text_desc_p"><span class="text_desc"><@=item.info@></span><button class="button1 edit_desc J_edit_desc ml20" api_url="<@=item.api_url@>" data_id = "<@=item._id@>" user_id="<@=item.pm_user_id@>">编辑</button></p>
+        </div>
+    </div>
+    <@})@>
+</script>
+
+
